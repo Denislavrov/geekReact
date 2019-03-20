@@ -1,0 +1,402 @@
+@import "const";
+
+@font-face {
+  font-family: 'Arial';
+  src: url('../fonts/ArialMT.woff2') format('woff2'),
+  url('../fonts/ArialMT.woff') format('woff'),
+  url('../fonts/ArialMT.ttf') format('truetype'),
+  url('../fonts/ArialMT.svg#ArialMT') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/OpenSans-Bold.woff2') format('woff2'),
+  url('../fonts/OpenSans-Bold.woff') format('woff'),
+  url('../fonts/OpenSans-Bold.ttf') format('truetype'),
+  url('../fonts/OpenSans-Bold.svg#OpenSans-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+*:focus
+{
+  outline: 3px solid $card-border;
+}
+
+a
+{
+  text-decoration: none;
+}
+
+.wrapper
+{
+  width: 100%;
+  background-color: $body-bg;
+  .mobile__link{
+    z-index: 1;
+    position: absolute;
+    color: $white;
+    font-size: 32px;
+    right: 50px;
+    top: 20px;
+    cursor: pointer;
+    display: none;
+    @media only screen and(max-width: 1024px)
+    {
+      display: block;
+    }
+  }
+}
+
+.center{
+  width: 957px;
+  margin: 0 auto;
+  padding-top: 80px;
+  display: flex;
+  @media only screen and(max-width: 1024px)
+  {
+    width: 100%;
+  }
+
+  .menu{
+    margin: 0;
+    padding: 0;
+    color: $white;
+    list-style: none;
+    @media only screen and(max-width: 1024px)
+    {
+      display: none;
+      z-index: 2;
+      position: absolute;
+    }
+
+
+
+    &__item
+    {
+      width: 318px;
+      padding: 30px;
+      text-align: left;
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+      font-family: $OB;
+      font-weight: 700;
+      font-size: 18px;
+      cursor:pointer;
+
+      &:first-child,
+      &:nth-child(3)
+      {
+        background-color: $menu-bg;
+      }
+      &._active
+      {
+        background-color: $menu-dis;
+        color: $disabledMenuLi;
+      }
+      &:nth-child(4),
+      &:nth-child(5)
+      {
+        background-color: $menulasts;
+      }
+      &:nth-child(5)
+      {
+        color: $disabledMenuLi;
+        border-top: 1px solid $menu-dis;
+      }
+
+      &:hover
+      {
+        background-color: $menu-dis;
+        color: $disabledMenuLi;
+      }
+    }
+  }
+
+  .form
+  {
+    background-color: $card-bg;
+
+    &__information{
+      padding: 47px 0 0 29px;
+      font-family: $AR;
+      font-weight: 400;
+      font-size: 16px;
+      color: $form-text;
+
+      .form__accnumber{
+        margin-top: 23px;
+
+        & span
+        {
+          margin-left: 62px;
+          color: $menu-bg;
+        }
+      }
+      .form__paysumm
+      {
+        margin-top: 11px;
+        & span{
+          margin-left: 41px;
+          color: $menu-bg;
+        }
+      }
+    }
+    &__title{
+      margin: 35px 0 0 29px;
+      font-family: $OB;
+      font-weight: 700;
+      font-size: 22px;
+      color: $form-title;
+    }
+
+    &__card{
+
+      margin: 42px 0 0 29px;
+      @media only screen and(max-width: 768px)
+      {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form__cardfront{
+        position: absolute;
+        top: -20px;
+        width: 350px;
+        z-index: 1;
+        height: 236px;
+        border-radius: 10px;
+        background-color: $card-bg;
+        border: 1px solid $card-border;
+        @media only screen and(max-width: 768px)
+        {
+          position: relative;
+          margin: 10px auto;
+          width: 90%;
+          top: 0;
+        }
+        .form__block1
+        {
+          margin: 46px 0 0 15px;
+          height: 42px;
+          .form__cardnumber
+          {
+            position: absolute;
+            top: -21px;
+            font-family: $AR;
+            font-weight: 400;
+            font-size: 16px;
+            color: $form-text;
+          }
+          .form__input._cardN
+          {
+            width: 65px;
+            height: 100%;
+            font-family: $AR;
+            font-weight: 400;
+            font-size: 16px;
+            color: $form-text;
+            padding: 12px 10px;
+            margin-right: 9px;
+            @media only screen and(max-width: 768px)
+            {
+              width: 20%;
+            }
+            &:last-child
+            {
+              margin-right: 0;
+            }
+          }
+        }
+        .form__block2
+        {
+          .form__date
+          {
+            display: flex;
+            .form__boxmonth
+            {
+              margin-right: 9px;
+              width: 70px;
+              height: 42px;
+
+            }
+            .form__boxyear
+            {
+              width: 89px;
+              height: 42px;
+            }
+            .form__month,
+            .form__year
+            {
+              width: 100%;
+              height: 100%;
+              border: 1px solid $card-border;
+              border-radius: 0;
+              font-family: $AR;
+              font-size: 16px;
+              font-weight: 400;
+              color: $number-color;
+              padding: 12px 15px;
+
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              appearance: none;
+              background: url('../img/arrow.png') 85% / 25% no-repeat $white;
+
+              /* CAUTION: IE hackery ahead */
+              select::-ms-expand {
+                display: none; /* remove default arrow on ie10 and ie11 */
+              }
+
+              /* target Internet Explorer 9 to undo the custom arrow */
+              @media screen and (min-width:0\0) {
+                select {
+                  background:none\9;
+                  padding: 5px\9;
+                }
+              }
+            }
+            .form__year
+            {
+              background: url('../img/arrow.png') 80% / 20% no-repeat $white;
+            }
+          }
+          margin: 38px 0 0 15px;
+          .form__validity
+          {
+            position: absolute;
+            top: -21px;
+            font-family: $AR;
+            font-weight: 400;
+            font-size: 16px;
+            color: $form-text;
+          }
+          .form__cardowner {
+            margin-top: 12px;
+            width: 319px;
+            height: 42px;
+            & input{
+              width: 100%;
+              height: 100%;
+              border: 1px solid $card-border;
+              padding: 12px 15px;
+              font-family: $AR;
+              font-size: 16px;
+              font-weight: 400;
+              color: $form-text;
+            }
+            @media only screen and(max-width: 768px)
+            {
+              width: 80%;
+            }
+          }
+        }
+
+      }
+      .form__cardback {
+        margin-left: 194px;
+        width: 350px;
+        height: 236px;
+        border-radius: 10px;
+        background-color: $card-bg;
+        border: 1px solid $card-border;
+
+        @media only screen and(max-width: 768px)
+        {
+          width: 90%;
+          margin: 10px auto;
+        }
+
+        .form__line
+        {
+          width: 100%;
+          height: 42px;
+          margin-top: 26px;
+          background-color: $card-border;
+        }
+        .form__cvv2
+        {
+          position: absolute;
+          right: 24px;
+          top: 87px;
+          font-family: $AR;
+          font-weight: 400;
+          font-size: 16px;
+          color: $form-text;
+        }
+        .form__input._cvv2
+        {
+          margin: 38px 0 0 194px;
+          width: 138px;
+          height: 42px;
+          font-family: $AR;
+          font-weight: 400;
+          font-size: 16px;
+          color: $form-text;
+          padding: 12px 15px;
+          background: url("../img/hint.png") no-repeat center right 7% #ffffff;
+
+          border: 1px solid $card-border;
+          @media only screen and(max-width: 768px)
+          {
+            position: absolute;
+            top: 86px;
+            right: 15px;
+          }
+        }
+      }
+    }
+    &__button
+    {
+      margin: 20px 0 45px 29px;
+      border-radius: 20px;
+      padding: 13px 29px;
+      color: $white;
+      font-family: $OB;
+      font-weight: 700;
+      font-size: 14px;
+      background-color: $button-bg;
+      cursor: pointer;
+      &:focus
+      {
+        outline: none;
+      }
+    }
+
+  }
+
+  .main {
+    margin-bottom: 80px;
+    @media only screen and(max-width: 1024px)
+    {
+      width:100%;
+    }
+    .main__text {
+      background-color: $number-color;
+      padding: 26px 45px 33px 29px;
+
+      & p:first-child {
+        margin-top: 0;
+      }
+      & p:last-child {
+        margin-bottom: 0;
+      }
+
+      & p {
+        font-family: $AR;
+        font-weight: 400;
+        font-size: 12px;
+        color: #89909d;
+      }
+    }
+  }
+    .input__error
+    {
+      border: 1px solid red;
+    }
+  }
+
+
+
